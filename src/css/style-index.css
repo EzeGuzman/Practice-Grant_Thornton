@@ -1,0 +1,354 @@
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background: rgb(149, 129, 182);
+  background: linear-gradient(
+    180deg,
+    rgba(149, 129, 182, 1) 0%,
+    rgba(220, 203, 242, 1) 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo__img-principal {
+  width: 20rem;
+}
+
+.card__container {
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 2rem;
+  border-radius: 20px;
+  position: relative;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card__form .form__item {
+  position: relative;
+}
+
+.card__form .form__item .form__item-icon {
+  position: absolute;
+  top: 0.82rem;
+  left: 1.4rem;
+  font-size: 1.3rem;
+  color: #747a81;
+}
+
+.card__form .form__item .label {
+  position: absolute;
+  left: 50px;
+  top: 14px;
+  pointer-events: none;
+  font-size: 14px;
+  color: #747a81;
+  transition: all 0.5s;
+}
+
+.checkboxes {
+  display: block;
+}
+
+.card__form .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 1px;
+}
+
+.card__form .form__item-other {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(1rem * 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.login__container-footer {
+  margin-top: 1.5rem;
+  font-size: calc(1rem * 0.8);
+}
+
+.form__item input[type='email'],
+.form__item input[type='password'],
+.form__item input[type='text'] {
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1rem 1.5rem;
+  padding-left: calc(1rem * 3.5);
+  border-radius: 100px;
+  width: 100%;
+}
+
+.form__item input[type='email']:valid,
+.form__item input[type='password']:valid,
+.form__item input[type='text']:valid,
+.form__item input[type='email']:focus,
+.form__item input[type='password']:focus,
+.form__item input[type='text']:focus {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.form__item input[type='email']:valid ~ .label,
+.form__item input[type='password']:valid ~ .label,
+.form__item input[type='date']:valid ~ .label,
+.form__item input[type='text']:valid ~ .label,
+.form__item input[type='email']:focus ~ .label,
+.form__item input[type='password']:focus ~ .label,
+.form__item input[type='date']:focus ~ .label,
+.form__item input[type='text']:focus ~ .label {
+  color: #000;
+  transform: translate(10px, -10px);
+  font-size: 0.8rem;
+  margin-left: -3rem;
+  top: -6px;
+}
+
+.card__form button {
+  background: rgb(139, 107, 190);
+  border: none;
+  color: white;
+  padding: 1rem;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.5s;
+}
+
+.card__form button:hover {
+  background-color: rgb(123, 39, 233);
+  cursor: pointer;
+}
+
+.footer__apis {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.footer > div {
+  opacity: 0.8;
+  letter-spacing: 1px;
+  font-size: calc(1rem * 0.8);
+}
+
+.underline:hover {
+  text-decoration: underline;
+}
+
+.birthday {
+  display: block;
+  padding-bottom: 50px;
+}
+
+input[type='date'] {
+  background-color: #8b6bbe;
+  padding: 15px 2rem;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-family: 'Roboto Mono', monospace;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.sign-in {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1s;
+}
+
+.sign-in.active {
+  opacity: 1;
+  visibility: visible;
+  transform: rotateY(360deg);
+}
+
+.sign-up.active {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 1024) {
+  body {
+    font-size: 0.3rem;
+    display: block;
+    margin: auto;
+    padding: 1.25rem;
+  }
+
+  .birthday {
+    display: block;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 0.5rem;
+    display: block;
+    margin: auto;
+    padding: 1.25rem;
+  }
+
+  .birthday {
+    display: block;
+    padding-bottom: 30px;
+  }
+
+  .icon__date {
+    padding-bottom: 30px;
+  }
+
+  input[type='date'] {
+    padding: 7px 1rem;
+  }
+
+  .card__form {
+    padding: 1px;
+  }
+
+  .card__right {
+    display: none;
+  }
+
+  .card__container {
+    width: 90vw;
+  }
+
+  .card__logo {
+    width: 5rem;
+  }
+
+  .title {
+    padding-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 414px) {
+  body {
+    padding: 4rem 1.2rem;
+  }
+
+  .card__logo {
+    width: 10rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .sign-in {
+    padding: 5rem 1.5rem;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  body {
+    padding: 2rem 1.2rem;
+  }
+
+  .card__logo {
+    width: 5.5rem;
+  }
+}
+
+@media screen and (min-width: 390px) {
+  body {
+    padding: 3rem 1.2rem;
+  }
+
+  .card__logo {
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  body {
+    padding: 1rem 1.2rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  body {
+    padding: 1rem;
+  }
+
+  .card__logo {
+    width: 2.5rem;
+  }
+
+  input[type='date'] {
+    padding: 6px 1rem;
+  }
+
+  .card__form .form__item {
+    padding: 1px;
+    font-size: 10px;
+  }
+
+  .icon__date {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  body {
+    padding: 4rem 1.2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .card__form .form__item {
+    padding: 1px;
+    font-size: 10px;
+  }
+
+  .sign-in {
+    height: 10px;
+  }
+
+  .card__container {
+    width: 480px;
+    padding: 1rem;
+  }
+
+  .form__item input[type='email'],
+  .form__item input[type='password'],
+  .form__item input[type='text'] {
+    padding: 1rem 3rem;
+  }
+}
